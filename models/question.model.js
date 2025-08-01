@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose"
 
 const questionSchema = new mongoose.Schema({
     session: {
@@ -20,4 +20,4 @@ const questionSchema = new mongoose.Schema({
     }
 }, {timestamps: true})
 
-module.exports = mongoose.model("Questions", questionSchema)
+export const Question = mongoose.model("Question", questionSchema) 
