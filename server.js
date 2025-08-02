@@ -34,7 +34,7 @@ const PORT = process.env.PORT || 8000;
 
 // routes
 app.use("/api/auth", authRoutes)
-app.use("/api/sessions", sessionRoutes)
+app.use("/api/session", sessionRoutes)
 // app.use("/api/questions", questionRoutes)
 
 // app.use("/api/ai/generate-questions", protect, generateInterviewQuestions)
