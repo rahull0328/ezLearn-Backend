@@ -70,7 +70,23 @@ export const togglePinQuestion = async (req, res) => {
 
 export const updateQuestionNote = async (req, res) => {
     try {
-        
+        const {note} = req.body
+        const question = await Question.findById(req.params.id)
+
+        if(!question) {
+            return res.status(404).json({
+                message: "Question not found",
+                success: false
+            })
+        }
+
+        question.note = note || "";
+        await question.save()
+
+        return res.status(200).json({
+            success: true,
+            question
+        })
     } catch (error) {
         return res.status(500).json({
             success: false,
