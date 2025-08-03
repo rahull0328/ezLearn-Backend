@@ -11,6 +11,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.route.js"
 import sessionRoutes from "./routes/session.route.js"
 import questionRoutes from "./routes/question.route.js"
+import aiRoutes from "./routes/ai.route.js"
 
 dotenv.config();
 
@@ -36,9 +37,7 @@ const PORT = process.env.PORT || 8000;
 app.use("/api/auth", authRoutes)
 app.use("/api/session", sessionRoutes)
 app.use("/api/question", questionRoutes)
-
-// app.use("/api/ai/generate-questions", protect, generateInterviewQuestions)
-// app.use("/api/ai/generate-explanation", protect, generateConceptExplanation)
+app.use("/api/ai", aiRoutes)
 
 // uploads routes
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
